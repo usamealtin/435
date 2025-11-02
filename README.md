@@ -1,104 +1,74 @@
-#LearnCSS
-An Interactive Web-Based CSS Learning Platform
-Overview
+# LearnCSS  
+### A Modern Web Platform for Interactive CSS Learning  
 
-LearnCSS is an interactive learning platform designed to help users understand and practice CSS concepts such as basics, flexbox, grid, and responsive design.
-The platform provides concise lessons, editable code examples, and real-time visual output to make learning CSS more engaging and practical.
+---
 
-Objectives
+## 🧭 Overview  
+**LearnCSS** is a web-based platform designed to help users understand and practice **Cascading Style Sheets (CSS)** through interactive lessons and live code execution.  
+It covers essential topics such as **CSS Basics**, **Flexbox**, **Grid**, and **Responsive Design**, presented in a clear and engaging way.  
 
-Introduce essential CSS concepts in a structured and accessible format.
+---
 
-Allow users to experiment with code directly in the browser.
+## 🎯 Goals  
+- Provide an interactive and visual approach to learning CSS.  
+- Offer editable code examples with real-time output.  
+- Demonstrate responsive and accessible web design principles.  
+- Combine modern frontend and backend technologies for a cohesive system.  
 
-Demonstrate core web development techniques using modern technologies.
+---
 
-Emphasize responsive and maintainable front-end design.
+## ⚙️ Features  
+- **Interactive Lessons** – Step-by-step CSS tutorials with editable code blocks.  
+- **Live Preview** – Users can instantly view results of their code changes.  
+- **Responsive Design** – Works across desktop and mobile devices.  
+- **Dynamic Content** – Lesson data served through FastAPI backend.  
 
-Features
+---
 
-Interactive Learning Environment: Users can modify and run CSS examples in a live editor.
+## 🧩 Tech Stack  
 
-Lesson Modules: Covers CSS fundamentals, Flexbox, Grid, and Responsive Layouts.
+| Layer | Technology |
+|-------|-------------|
+| Frontend | React, TypeScript, Tailwind CSS |
+| Backend | FastAPI (Python), SQLite |
+| Version Control | Git & GitHub |
+| Communication | Slack |
 
-Responsive Interface: Adapts to desktop and mobile devices.
+---
 
-Backend Integration: Retrieves lessons dynamically from the database via API.
+## 🚀 Quick Start  
 
-Lightweight and Modular Design: Built with scalable, modern tools.
-
-Technology Stack
-Component	Technology
-Frontend	React, TypeScript, Tailwind CSS
-Backend	FastAPI (Python), SQLite
-Version Control	Git & GitHub
-Communication	Slack
-Planned Hosting	GitHub Pages / Render
-Project Structure
-LearnCSS/
-│
-├── frontend/           # React + TypeScript frontend
-│   ├── src/
-│   │   ├── components/ # Reusable UI components
-│   │   ├── pages/      # Lesson pages
-│   │   └── App.tsx
-│
-├── backend/            # FastAPI backend
-│   ├── main.py         # Entry point
-│   ├── models.py       # Database models
-│   ├── routes/         # API endpoints
-│
-├── README.md
-└── requirements.txt
-
-Installation and Setup
-Prerequisites
-
-Node.js and npm
-
-Python 3.10 or later
-
-Steps
-
-Clone the repository:
-
+```bash
+# Clone repository
 git clone https://github.com/EceErgul/Project_435.git
-
-
-Install dependencies:
-
-# Frontend
+cd Project_435
+```
+```bash
+# Frontend setup
 cd frontend
 npm install
-
-# Backend
+npm start
+```
+```bash
+# Backend setup
 cd ../backend
 pip install -r requirements.txt
-
-
-Run the application:
-
-# Frontend
-npm start
-
-# Backend
 uvicorn main:app --reload
+Frontend runs on http://localhost:3000
+Backend runs on http://127.0.0.1:8000
+```
+---
 
-Development Status
+## 🧱 Development Roadmap
 
-The project is under active development.
-Planned milestones include:
+1. Interface and layout design
+2. Frontend implementation
+3. Backend setup
+4. Integration and testing
+5. Deployment
 
-Interface and layout design
+---
 
-Frontend development
-
-Backend setup
-
-Integration and testing
-
-Final deployment
-
-License
+## 📜 License
 
 This project is open for educational and non-commercial use.
