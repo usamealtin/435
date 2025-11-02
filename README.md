@@ -30,7 +30,7 @@ It covers essential topics such as **CSS Basics**, **Flexbox**, **Grid**, and **
 | Layer | Technology |
 |-------|-------------|
 | Frontend | React, TypeScript, Tailwind CSS |
-| Backend | FastAPI (Python), SQLite |
+| Backend | FastAPI (Python), PostgreSQL |
 | Version Control | Git & GitHub |
 | Communication | Slack |
 
