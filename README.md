@@ -72,5 +72,9 @@ Backend runs on http://127.0.0.1:8000
 This project is open for educational and non-commercial use.
 =======
 # Project_435
+<<<<<<< HEAD
 This repository is for a collaborative project currently under development. The specific idea and scope are still being finalized. Once the concept is decided, this repo will include the project plan, source code, and documentation.
 >>>>>>> 3983b97 (Initial commit)
+=======
+This repository is for a collaborative project currently under development. The specific idea and scope are still being finalised. Once the concept is decided, this repo will include the project plan, source code, and documentation.
+>>>>>>> 1752115 (small Update)
