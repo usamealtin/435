@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Editor — LearnCSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="editor-page">
+    
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">*</span>
+                <span class="brand-text">LearnCSS</span>
+            </a>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tutorials">Tutorials</a></li>
+                    <li><a href="editor.html" class="active">Editor</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a class="btn btn-primary" href="index.html#start">Start Learning</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="editor-workspace" id="workspace">
+        
+        <div class="code-panel" id="codePanel">
+            
+            <div class="html-section" id="htmlSection">
+                <div class="editor-toolbar">
+                    <span class="lang-label html">HTML</span>
+                    <span class="file-name">index.html</span>
+                </div>
+                <textarea id="html-code" spellcheck="false" placeholder="">
+<div class="container">
+  <div class="card">
+    <h2>Hello CSS!</h2>
+    <p>Drag the bars to resize panels.</p>
+    <button>Hover Me</button>
+  </div>
+</div></textarea>
+            </div>
+
+            <div class="resizer resizer-y" id="resizerY"></div>
+
+            <div class="css-section" id="cssSection">
+                <div class="editor-toolbar">
+                    <span class="lang-label css">CSS</span>
+                    <span class="file-name">style.css</span>
+                </div>
+                <textarea id="css-code" spellcheck="false" placeholder="/* CSS here */">
+body {
+  font-family: system-ui;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+button {
+  background: #325dff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+button:hover { opacity: 0.9; }</textarea>
+            </div>
+        </div>
+
+        <div class="resizer resizer-x" id="resizerX"></div>
+
+        <div class="preview-panel" id="previewPanel">
+            <div class="editor-toolbar preview-header">
+                <span class="lang-label preview">Preview</span>
+                <button id="refresh-btn" style="background:none; border:none; color:inherit; cursor:pointer;">↻</button>
+            </div>
+            <iframe id="preview-frame"></iframe>
+            <div class="iframe-shield"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- 1. LIVE PREVIEW ---
+        const htmlInput = document.getElementById('html-code');
+        const cssInput = document.getElementById('css-code');
+        const previewFrame = document.getElementById('preview-frame');
+        const refreshBtn = document.getElementById('refresh-btn');
+
+        function updatePreview() {
+            const html = htmlInput.value;
+            const css = `<style>${cssInput.value}</style>`;
+            const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            doc.open();
+            doc.write(css + html);
+            doc.close();
+        }
+
+        htmlInput.addEventListener('input', updatePreview);
+        cssInput.addEventListener('input', updatePreview);
+        refreshBtn.addEventListener('click', updatePreview);
+        window.addEventListener('load', updatePreview);
+
+        // --- 2. RESIZER LOGIC (HASSAS AYARLI) ---
+        const workspace = document.getElementById('workspace');
+        const codePanel = document.getElementById('codePanel');
+        const htmlSection = document.getElementById('htmlSection'); // Yüksekliği değişecek olan
+        
+        const resizerX = document.getElementById('resizerX'); // Sol-Sağ
+        const resizerY = document.getElementById('resizerY'); // Alt-Üst
+
+        let isResizingX = false;
+        let isResizingY = false;
+
+        // Olayları Başlat
+        resizerX.addEventListener('mousedown', (e) => {
+            isResizingX = true;
+            document.body.classList.add('is-resizing');
+            e.preventDefault();
+        });
+
+        resizerY.addEventListener('mousedown', (e) => {
+            isResizingY = true;
+            document.body.classList.add('is-resizing');
+            e.preventDefault();
+        });
+
+        // Mouse Hareketi
+        document.addEventListener('mousemove', (e) => {
+            if (!isResizingX && !isResizingY) return;
+
+            // --- X EKSENİ (Sol/Sağ Panel Genişliği) ---
+            if (isResizingX) {
+                const workspaceRect = workspace.getBoundingClientRect();
+                // Mouse'un workspace içindeki X konumu
+                const newWidth = e.clientX - workspaceRect.left;
+                
+                // Min-Max Sınırları (Piksel cinsinden)
+                if (newWidth > 150 && newWidth < workspaceRect.width - 150) {
+                    // Yüzde yerine piksel de kullanabiliriz ama responsive kalması için % çevirelim
+                    const newWidthPercent = (newWidth / workspaceRect.width) * 100;
+                    codePanel.style.width = `${newWidthPercent}%`;
+                }
+            }
+
+            // --- Y EKSENİ (HTML/CSS Yüksekliği) ---
+            if (isResizingY) {
+                const panelRect = codePanel.getBoundingClientRect();
+                // Mouse'un codePanel'in üstünden ne kadar aşağıda olduğu
+                const newHeight = e.clientY - panelRect.top;
+
+                // Min-Max Sınırları
+                if (newHeight > 100 && newHeight < panelRect.height - 100) {
+                    // Burada piksel kullanmak flex yapısında daha kararlıdır
+                    htmlSection.style.height = `${newHeight}px`;
+                }
+            }
+        });
+
+        // Bırakma
+        document.addEventListener('mouseup', () => {
+            isResizingX = false;
+            isResizingY = false;
+            document.body.classList.remove('is-resizing');
+        });
+    </script>
+
+        <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> NextHive — LearnCSS</p>
+            <nav aria-label="Footer">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="about.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent=new Date().getFullYear();
+    </script>
+</body>
+</html>

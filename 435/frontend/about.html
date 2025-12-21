@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — LearnCSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">*</span>
+                <span class="brand-text">LearnCSS</span>
+            </a>
+
+            <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Toggle navigation" />
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </label>
+
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tutorials">Tutorials</a></li>
+                    <li><a href="index.html#editor">Editor</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a class="btn btn-primary" href="index.html#start">Start Learning</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="about" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="about-header">
+                    <h1 id="about-title">About NextHive</h1>
+                    <p class="lead">
+                      Built by <strong>NextHive</strong> for CEIT 435 to make CSS learning
+                      intuitive, interactive, and fun.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    
+                    <article class="team-member">
+                        <div class="member-avatar">
+                            <span>UA</span>
+                        </div>
+                        <h3>Usame Altınışık</h3>
+                        <p class="member-role">Developer</p>
+                        <p class="member-bio">Front-end geliştirme ve kullanıcı deneyimi üzerine çalışıyor.</p>
+                    </article>
+
+                    <article class="team-member">
+                        <div class="member-avatar">
+                            <span>PS</span>
+                        </div>
+                        <h3>Parsa Sadedgieh Ahari</h3>
+                        <p class="member-role">Developer</p>
+                        <p class="member-bio">Veri yapıları ve backend mimarisi konusunda uzman.</p>
+                    </article>
+
+                    <article class="team-member">
+                        <div class="member-avatar">
+                            <span>EE</span>
+                        </div>
+                        <h3>Ece Ergül</h3>
+                        <p class="member-role">Designer</p>
+                        <p class="member-bio">Modern arayüz tasarımları ve görsel hiyerarşi sorumlusu.</p>
+                    </article>
+
+                    <article class="team-member">
+                        <div class="member-avatar">
+                            <span>CU</span>
+                        </div>
+                        <h3>Cem Ulaş Usta</h3>
+                        <p class="member-role">Content Manager</p>
+                        <p class="member-bio">Eğitim içeriklerinin planlanması ve kalite kontrolü.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> NextHive — LearnCSS</p>
+            <nav aria-label="Footer">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="about.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent=new Date().getFullYear();
+    </script>
+</body>
+</html>
