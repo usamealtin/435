@@ -105,6 +105,17 @@
         </div>
     </footer>
 
+    <script src="api.js"></script>
+    <script>
+    getTopics()
+        .then(data => {
+            console.log("Topics from backend:", data);
+        })
+        .catch(err => {
+            console.error("Backend connection error:", err);
+        });
+    </script>
+
     <script>
         document.getElementById('year').textContent=new Date().getFullYear();
     </script>
