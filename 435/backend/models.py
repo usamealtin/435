@@ -9,9 +9,11 @@ from sqlalchemy import (
     Numeric,
     JSON)
 from sqlalchemy.dialects.postgresql import UUID
-from database import Base
+from sqlalchemy.orm import declarative_base
 import uuid
 from sqlalchemy.sql import func
+
+Base = declarative_base()
 
 class Learner(Base):
     __tablename__ = "learners"
