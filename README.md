@@ -52,7 +52,7 @@ cd ../backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
-Frontend runs on http://localhost:3000
+Frontend runs on http://127.0.0.1:8000
 
 Backend runs on http://127.0.0.1:8000
 
