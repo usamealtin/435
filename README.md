@@ -40,7 +40,7 @@ It covers essential topics such as **CSS Basics**, **Flexbox**, **Grid**, and **
 ```bash
 # Clone repository
 git clone https://github.com/usamealtin/435.git
-cd Project_435
+cd 435
 
 # Frontend setup
 cd frontend
