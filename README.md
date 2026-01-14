@@ -40,17 +40,14 @@ It covers essential topics such as **CSS Basics**, **Flexbox**, **Grid**, and **
 ```bash
 # Clone repository
 git clone https://github.com/usamealtin/435.git
-cd Project_435
-
-# Frontend setup
-cd frontend
-npm install
-npm start
+cd 435
 
 # Backend setup
 cd ../backend
 pip install -r requirements.txt
-uvicorn main:app --reload
+
+# Start Program
+uvicorn main:app --reload --host 127.0.0.1 --port 8000 (Both frontend and backend should use the same port number.)
 ```
 Frontend runs on http://127.0.0.1:8000
 
