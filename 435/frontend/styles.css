@@ -369,7 +369,7 @@ body {
   .about-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .nav-toggle-btn { display: inline-flex; margin-left: auto; }
   .site-nav {
     position: fixed;
@@ -387,15 +387,13 @@ body {
   .nav-toggle:checked ~ .nav-toggle-btn + .site-nav,
   .nav-toggle:checked ~ .site-nav {
     transform: translateY(0);
-  }
-}
 
-@media (max-width: 768px) {
-  .feature-grid { grid-template-columns: repeat(3, 1fr); }
+    .feature-grid { grid-template-columns: repeat(3, 1fr); }
   .topics-grid { grid-template-columns: repeat(3, 1fr); }
   .container { padding: 0 1rem; }
   .hero-copy h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
   .preview-grid { grid-template-columns: repeat(4, 1fr); }
+  }
 }
 
 @media (max-width: 480px) {
